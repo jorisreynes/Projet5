@@ -4,11 +4,13 @@ require('controller/frontend.php');
 
 
 try {
-    //var_dump($_GET['action']);
+ 
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
             listPosts();
         }
+
+
         elseif ($_GET['action'] == 'post') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 post();
@@ -20,23 +22,30 @@ try {
 
     
 
+
+
+        elseif ($_GET['action'] == 'newpost') {
+           
+            if (isset($_GET['title']) && $_GET['content']){
+               addpost($_GET['title'], $_GET['content']);
+           }
+            else {
+               newpost('', '');
+            }
+        }
         elseif ($_GET['action'] == 'addpost') {
-            //
-            addpost($_POST['title'], $_POST['content']);
+
+           
+
+            if (isset($_POST['title']) && $_POST['content']){
+                addpost($_POST['title'], $_POST['content']);
+            }
+            else {
+                newpost('', '');
+            }
         }
 
 
-
-
-
-
-        elseif ($_GET['action'] == 'connexion') {
-            connexion();
-        }
-
-        elseif ($_GET['action'] == 'subscription') {
-            subscription();
-        }
 
 
         elseif ($_GET['action'] == 'addComment') {
@@ -52,9 +61,59 @@ try {
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
+
+
+
+
+        elseif ($_GET['action'] == 'subscriptionpage') {
+            subscriptionpage();
+        }
+
+        elseif ($_GET['action'] == 'subscription') 
+        {
+            subscriptioncontroller($_POST['pseudo'], $_POST['email'], $_POST['password']);
+        }
+
+
+
+        elseif ($_GET['action'] == 'connexionpage') {
+            connexionpage();
+        }
+
+
+        elseif ($_GET['action'] == 'connexion') {
+            connexion($_POST['pseudo'], $_POST['password']);
+        }
+
+      
+
+
+        
+        
+
+        elseif ($_GET['action'] == 'deconnexion') {
+            deconnexion();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
     }
     else {
-        //listPosts();
+       
         home();
     }
 }

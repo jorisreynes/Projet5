@@ -1,3 +1,6 @@
+<?php $title = 'Mon blog'; 
+session_start();?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,6 +31,49 @@
 </header>
 
 <div class="col-lg-8 col-md-10 mx-auto">
+
+
+
+
+
+<?php
+    if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
+        echo '<a href="#">Commentaires à valider</a>';
+        listComments();
+
+    }
+?>
+
+
+
+
+
+
+
+
+                
+
+
+                   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
 
 <h1><span class="red">Vous</span> pouvez utiliser le formulaire ci dessous pour me contacter</h1>
 

@@ -22,23 +22,28 @@
     <h1>Connexion</h1>
 
 
-        <form name="subscription" id="subscriptionForm" novalidate="">
+        <form name="subscription" id="subscriptionForm" novalidate="" form action="index.php?action=connexion" method="POST">
+        
+
             <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
-                    <label>Nom</label>
-                    <input type="text" class="form-control" placeholder="Nom" id="name" required="" data-validation-required-message="Entrez votre nom.">
+                    <label for="pseudo">Pseudo</label><br />
+                    <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Pseudo"/>
                 </div>
             </div>
           
             <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
-                    <label>Mot de passe</label>
-                    <input type="text" class="form-control" placeholder="Mot de passe" id="motdepasse" required="" data-validation-required-message="Entrez votre mot de passe."></input>
+                    <label for="password">Password</label><br />
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe"/>
                 </div>
             </div>
+
             <br>
+
                 <button type="submit" class="button" id="sendMessageButton">Envoyer</button>
         </form>
+
     </div>
 
     <?php include("footer.php"); ?>

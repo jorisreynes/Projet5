@@ -3,6 +3,7 @@
 // Chargement des classes
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
+require_once('model/ConnexionSubscription.php');
 
 function listPosts()
 {
@@ -12,24 +13,24 @@ function listPosts()
     require('view/frontend/listPostsView.php');
 }
 
+
+function listComments()
+{
+    $postManager = new \OpenClassrooms\Blog\Model\CommentManager();
+    $posts = $postManager->getComments();
+
+    //require('view/frontend/listPostsView.php');
+}
+
+
+
+
+
+
+
 function home()
 {
     require('view/frontend/home.php');
-
-}
-
-
-function connexion()
-{
-    require('view/frontend/connexion.php');
-
-}
-
-
-function subscription()
-{
-    require('view/frontend/subscription.php');
-
 }
 
 
@@ -70,5 +71,70 @@ function addpost($title, $content)
     $affectedLines = $postManager->postPost($title, $content);
 
     require('view/frontend/addpost.php');
+}
+
+
+
+function newpost($title, $content)
+{
+    $postManager = new \OpenClassrooms\Blog\Model\PostManager();
+
+    $affectedLines = $postManager->postPost($title, $content);
+
+    require('view/frontend/addpost.php');
+}
+
+
+
+function subscriptionpage()
+{
+    require('view/frontend/subscription.php');
+}
+
+
+
+function connexionpage()
+{
+    require('view/frontend/connexion.php');
+}
+
+
+
+function connexion($pseudo, $password)
+{
+    $connexionSubscriptionManager = new \OpenClassrooms\Blog\Model\ConnexionSubscriptionManager();
+
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+    $affectedLines = $connexionSubscriptionManager->connexion($pseudo, $password);
+
+    require('view/frontend/connexion.php');
+}
+
+
+
+function subscriptioncontroller($pseudo, $email, $password)
+{
+    $connexionSubscriptionManager = new \OpenClassrooms\Blog\Model\ConnexionSubscriptionManager();
+
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+    $affectedLines = $connexionSubscriptionManager->subscription($pseudo, $email, $password);
+
+    require('view/frontend/subscription.php');
+}
+
+
+
+
+
+function deconnexion()
+{
+
+    session_start();
+    session_destroy();
+
+    //require('index.php');
+    header("Location: http://localhost:8888/Projet5/index.php");
 
 }

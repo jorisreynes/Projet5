@@ -21,31 +21,34 @@
 
     <h1>Inscription</h1>
 
-    <form name="subscription" id="subscriptionForm" novalidate="">
-            <div class="control-group">
-                <div class="form-group floating-label-form-group controls">
-                    <label>Nom</label>
-                    <input type="text" class="form-control" placeholder="Nom" id="name" required="" data-validation-required-message="Entrez votre nom.">
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="form-group floating-label-form-group controls">
-                    <label>Email</label>
-                    <input type="email" class="form-control" placeholder="Email" id="email" required="" data-validation-required-message="Entrez votre adresse email.">
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="form-group floating-label-form-group controls">
-                    <label>Mot de passe</label>
-                    <input type="text" class="form-control" placeholder="Mot de passe" id="motdepasse" required="" data-validation-required-message="Entrez votre mot de passe."></input>
-                </div>
-            </div>
+    <form action="index.php?action=subscription" method="POST">
+
+
+
+        <div>
+            <label for="pseudo">Pseudo</label><br />
+            <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Pseudo"/>
+        </div>
+
+        <div>
+            <label for="email">Email</label><br />
+            <input type="text" class="form-control" id="email" name="email" placeholder="Adresse email"/>
+        </div>
+
+        <div>
+            <label for="password">Password</label><br />
+            <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe"/>
+        </div>
+
+
+        <div>
             <br>
-            <div id="success"></div>
-            <div class="form-group">
-                <button type="submit" class="button" id="sendMessageButton">Envoyer</button>
-            </div>
+            <button type="submit" class="button" id="sendMessageButton">Envoyer</button>
+        </div>
+
+
     </form>
+
     </div>
     <?php include("footer.php"); ?>
 

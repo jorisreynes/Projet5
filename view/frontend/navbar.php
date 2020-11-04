@@ -16,11 +16,27 @@
             <li class="nav-item active">
             <a class="nav-link" href="index.php?action=listPosts">Les articles<span class="sr-only">(current)</span></a>
             </li>
+            
             <li class="nav-item active">
-            <a class="nav-link" href="index.php?action=connexion">Connnexion<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.php?action=subscriptionpage">Inscription<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-            <a class="nav-link" href="index.php?action=subscription">Inscription<span class="sr-only">(current)</span></a>
+
+
+
+
+            <?php
+            if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
+                {
+                   echo '<a class="nav-link" href="index.php?action=deconnexion">Déconnnexion<span class="sr-only">(current)</span></a>';
+                }
+                else{
+                    echo '<a class="nav-link" href="index.php?action=connexionpage">Connnexion<span class="sr-only">(current)</span></a>';
+                }
+            ?> 
+
+
+
             </li>
             </ul>
 

@@ -19,7 +19,7 @@
 
     <h1>Ajouter un post</h1>
 
-        <form action="index.php?action=addpost>" method="post">
+        <form action="index.php?action=addpost" method="POST">
 
 
 

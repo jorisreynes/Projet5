@@ -7,6 +7,9 @@ require_once("model/Manager.php");
 class PostManager extends Manager
 
 {
+
+
+
     public function getPosts()
     {
         $db = $this->dbConnect();
@@ -14,6 +17,10 @@ class PostManager extends Manager
 
         return $req;
     }
+
+
+
+
 
     public function getPost($postId)
     {
@@ -26,6 +33,9 @@ class PostManager extends Manager
     }
 
 
+
+
+
 // Nouvelle fonction ci dessous pour ajouter des posts
 
     public function postPost($title, $content)
@@ -36,4 +46,8 @@ class PostManager extends Manager
 
     return $affectedLines;
     }
+
+
+
+    
 }
