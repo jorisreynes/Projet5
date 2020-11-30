@@ -40,6 +40,79 @@ class CommentManager extends Manager
     }
 
 
+    public function updateComment($id)
+    {
+        $db = $this->dbConnect();
+        $status = 'valide';
+        $comments = $db->prepare('UPDATE comments(comment_status) VALUES("valide")');
+        $affectedLines = $comments->execute(array($id, $comment_status));
+
+        return $affectedLines;
+    }
+
+    public function removeComment2($id)
+    {
+        $db = $this->dbConnect();
+        $status = 'valide';
+        $comments = $db->execute('DELETE from comment where id=$id');
+        //$affectedLines = $comments->execute(array($id, $comment_status));
+
+        return $affectedLines;
+    }
+
+
+
+    public function removeComment4($id)
+    {
+        $db = $this->dbConnect();
+        $comments = $db->execute('DELETE FROM comments WHERE id=$id');
+        
+        //$affectedLines = $comments->execute(array($id));
+
+        //var_dump ($comments);
+        //echo '----';
+        //var_dump ($affectedLines);
+
+        header("Location: http://localhost:8888/Projet5/index.php");
+
+
+        return $affectedLines;
+    }
+
+   
+    public function removeComment($id)
+    {
+        $db = $this->dbConnect();
+        $comments = $db->prepare('DELETE FROM comments WHERE id=?');
+        
+        $affectedLines = $comments->execute(array($id));
+
+        //ar_dump ($comments);
+        //echo '----';
+        //var_dump ($affectedLines);
+
+        header("Location: http://localhost:8888/Projet5/index.php");
+
+
+        return $affectedLines;
+    }
+
+
+
+
+
+
+
+
+
+
+    public function removeComment3($id)
+    {
+        $sql = 'DELETE FROM comments WHERE id = ?';
+        $this->createQuery($sql, [$id]);
+    }
+
+
 
 
 }

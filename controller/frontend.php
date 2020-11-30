@@ -19,11 +19,24 @@ function listComments()
     $postManager = new \OpenClassrooms\Blog\Model\CommentManager();
     $posts = $postManager->getComments();
 
-    //require('view/frontend/listPostsView.php');
+    
 }
 
+function validateComment($postId)
+{
+    $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+    $posts = $commentManager->updateComment($_GET['id']);
 
+    
+}
 
+function deleteComment($postId)
+{
+    $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+    $posts = $commentManager->removeComment($_GET['id']);
+
+    
+}
 
 
 

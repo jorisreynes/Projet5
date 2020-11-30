@@ -36,7 +36,7 @@ while ($data = $posts->fetch())
         </h3>
         <br>
         <p>
-            <?= nl2br(htmlspecialchars($data['content'])) ?>
+            <?= nl2br(htmlspecialchars($data['chapo'])) ?>
 <br>
             <?php
             if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
@@ -45,7 +45,7 @@ while ($data = $posts->fetch())
                 }
             ?>    
 
-            <a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a>
+            <a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Voir le post</a>
         </p>
 
 <?php

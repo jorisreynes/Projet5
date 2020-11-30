@@ -37,12 +37,48 @@ session_start();?>
 
 
 <?php
-    if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
-        echo '<a href="#">Commentaires à valider</a>';
-        listComments();
 
-    }
+    if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
+        echo 'Commentaires à valider' .'<br /><br />';
+
+        $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'root');
+
+
+        $reponse = $bdd->query('SELECT * FROM comments WHERE comment_status =\'avalider\'');
+    
+        while ($donnees = $reponse->fetch())
+
+        {
+            ?>
+
+           
+                <?= htmlspecialchars($donnees['author']) ?>
+                
+            
+            <br>
+            <p>
+                <?= nl2br(htmlspecialchars($donnees['comment'])) ?>
+    <br>
+                  
+    
+                <a href="index.php?action=validatecomment&amp;id=<?= $donnees['id'] ?>">Valider le post</a>
+                <a href="index.php?action=deletecomment&amp;id=<?= $donnees['id'] ?>"> Supprimer le post</a>
+            </p>
+
+            <?php
+}
+    
+$reponse->closeCursor();
+}
 ?>
+
+
+
+
+
+
+
+
 
 
 
@@ -86,7 +122,7 @@ session_start();?>
                 </div>
             </div>
             <div class="control-group">
-                <div class="form-group floating-label-form-group controls">
+                <div class="form-group floating-labeæl-form-group controls">
                     <label>Email</label>
                     <input type="email" class="form-control" placeholder="Email" id="email" required="" data-validation-required-message="Entrez votre adresse email.">
                     <p class="help-block text-danger"></p>

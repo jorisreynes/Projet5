@@ -28,7 +28,9 @@ session_start();?>
         <?= htmlspecialchars($post['title']) ?>
         <em>le <?= $post['creation_date_fr'] ?></em>
     </h3>
-    
+    <p>
+        <?= nl2br(htmlspecialchars($post['chapo'])) ?>
+    </p>
     <p>
         <?= nl2br(htmlspecialchars($post['content'])) ?>
     </p>

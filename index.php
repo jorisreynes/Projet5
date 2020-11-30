@@ -62,7 +62,16 @@ try {
             }
         }
 
+        elseif ($_GET['action'] == 'validatecomment') {
+            validateComment($_GET['id']);
+           
+        }
 
+
+        elseif ($_GET['action'] == 'deletecomment') {
+            deleteComment($_GET['id']);
+           
+        }
 
 
         elseif ($_GET['action'] == 'subscriptionpage') {
@@ -88,7 +97,7 @@ try {
       
 
 
-        
+
         
 
         elseif ($_GET['action'] == 'deconnexion') {
