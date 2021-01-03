@@ -12,8 +12,8 @@ class ConnexionSubscriptionManager extends Manager
 
     public function subscription($pseudo, $email, $password)
     {
-    $db = $this->dbConnect();
-    $users = $db->prepare('INSERT INTO users(pseudo, email, password) VALUES(?, ?, ?)');
+    $database = $this->dbConnect();
+    $users = $database->prepare('INSERT INTO users(pseudo, email, password) VALUES(?, ?, ?)');
     $affectedLines = $users->execute(array($pseudo, $email, $password));
 
     return $affectedLines;
@@ -32,9 +32,9 @@ class ConnexionSubscriptionManager extends Manager
 
     public function connexion($pseudo, $password)
     {
-    $db = $this->dbConnect();
+    $database = $this->dbConnect();
 
-    $req = $db->prepare('SELECT id, password FROM users WHERE pseudo = :pseudo');
+    $req = $database->prepare('SELECT id, password FROM users WHERE pseudo = :pseudo');
     $req->execute(array('pseudo' => $pseudo));
     $resultat = $req->fetch();
 

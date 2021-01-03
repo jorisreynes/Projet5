@@ -6,8 +6,8 @@ class Manager
 {
     protected function dbConnect()
     {
-        $db = new \PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'root');
+        $database = new \PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'root');
         //$db = new \PDO('mysql:host=localhost;dbname=test;charset=utf8', 'dbuser', '');
-        return $db;
+        return $database;
     }
 }

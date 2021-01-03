@@ -12,8 +12,8 @@ class CommentManager extends Manager
 
     public function getComments($postId)
     {
-        $db = $this->dbConnect();
-        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+        $database = $this->dbConnect();
+        $comments = $database->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
         $comments->execute(array($postId));
 
         return $comments;
@@ -21,8 +21,8 @@ class CommentManager extends Manager
 
     public function getComment()
     {
-        $db = $this->dbConnect();
-        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+        $database = $this->dbConnect();
+        $comments = $database->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
 
 
         return $comments;
@@ -31,24 +31,74 @@ class CommentManager extends Manager
 
     public function postComment($postId, $author, $comment)
     {
-        $db = $this->dbConnect();
+        $database = $this->dbConnect();
         $status = 'avalider';
-        $comments = $db->prepare('INSERT INTO comments(post_id, author, comment, comment_status, comment_date) VALUES(?, ?, ?, "avalider", NOW())');
+        $comments = $database->prepare('INSERT INTO comments(post_id, author, comment, comment_status, comment_date) VALUES(?, ?, ?, "avalider", NOW())');
         $affectedLines = $comments->execute(array($postId, $author, $comment));
 
         return $affectedLines;
     }
 
 
+
+
+
+    public function updateComment2($id)
+    {
+        $database = $this->dbConnect();
+        $status = 'valide';
+        $comments = $database->prepare('UPDATE comments(comment_status) VALUES("valide") WHERE id=?');
+        $affectedLines = $comments->execute(array($id, $comment_status));
+
+       
+
+        return $affectedLines;
+        header("Location: http://localhost:8888/Projet5/index.php");
+    }
+
     public function updateComment($id)
     {
+        $database = $this->dbConnect();
+        //$id=33;
+        //$status = 'valide';
+        $comments = $database->prepare('UPDATE comments SET comment_status = "valide" WHERE id=?');
+        //var_dump ($comments);
+        
+        $affectedLines = $comments->execute(array($id));
+
+        //var_dump ($status);
+        //
+       
+        //var_dump ($affectedLines);
+        header("Location: http://localhost:8888/Projet5/index.php");
+        return $affectedLines;
+
+        
+    }
+
+
+
+
+
+
+
+
+    public function removeComment($id)
+    {
         $db = $this->dbConnect();
-        $status = 'valide';
-        $comments = $db->prepare('UPDATE comments(comment_status) VALUES("valide")');
-        $affectedLines = $comments->execute(array($id, $comment_status));
+        $comments = $db->prepare('DELETE FROM comments WHERE id=?');
+        
+        $affectedLines = $comments->execute(array($id));
+
+
+        header("Location: http://localhost:8888/Projet5/index.php");
+
 
         return $affectedLines;
     }
+
+
+
 
     public function removeComment2($id)
     {
@@ -80,22 +130,7 @@ class CommentManager extends Manager
     }
 
    
-    public function removeComment($id)
-    {
-        $db = $this->dbConnect();
-        $comments = $db->prepare('DELETE FROM comments WHERE id=?');
-        
-        $affectedLines = $comments->execute(array($id));
-
-        //ar_dump ($comments);
-        //echo '----';
-        //var_dump ($affectedLines);
-
-        header("Location: http://localhost:8888/Projet5/index.php");
-
-
-        return $affectedLines;
-    }
+    
 
 
 
