@@ -1,95 +1,107 @@
-@font-face {
-    font-family: 'Montserrat';
-    src: url('montserrat/Montserrat-Light.otf');
-    font-weight: normal;
-    font-style: normal;
+@font-face
+{
+    font-family:        'Montserrat';
+    src:        url('montserrat/Montserrat-Light.otf');
+    font-weight:        normal;
+    font-style:     normal;
 }
 
-h1,
-h2 {
-    font-family: 'Montserrat', 'Times New Roman';
+h1, h2
+{
+    font-family:        'Montserrat', 'Times New Roman';
 }
 
-.button {
-    background-color: rgb(204, 0, 0);
-    opacity:  0.7;
-    Color:  white;
-    padding:  10px 40px;
-    border-radius:  5px;
-    border-color:  white;
+.button
+{
+    background-color:       rgb(204, 0, 0);
+    opacity:        0.7;
+    Color:      white;
+    padding:        10px 40px;
+    border-radius:      5px;
+    border-color:       white;
 }
 
-.red {
-    color:  rgb(204, 0, 0);
-}
-
-
-navbar-brand {
-    padding:  200px 0 150px;
-    margin:  3rem auto;
-}
-
-h1 {
-    letter-spacing:  2px;
-    text-align: center;
-    width: 75%;
-    padding-bottom: 1.5rem;
-    margin: 3rem auto;
-}
-
-h2 {
-    text-align:  center;
-    margin: 3rem auto;
-    padding-bottom: 1.5rem;
+.red
+{
+    color:      rgb(204, 0, 0);
 }
 
 
-h3 {
-    text-align:center;
-    padding: .75rem 1.25rem;
-    padding-bottom: 1.5rem;
-    margin-bottom: 0;
-    background-color: rgba(0,0,0,.03);
-    border-bottom: 1px solid rgba(0,0,0,0.125);
+navbar-brand
+{
+    padding:        200px 0 150px;
+    margin:     3rem auto;
+}
 
+h1
+{
+    letter-spacing:     2px;
+    text-align:     center;
+    width:      75%;
+    padding-bottom:     1.5rem;
+    margin:     3rem auto;
+}
+
+h2
+{
+    text-align:     center;
+    margin:     3rem auto;
+    padding-bottom:     1.5rem;
 }
 
 
+h3
+{
+    text-align:     center;
+    padding:        0.75rem 1.25rem;
+    padding-bottom:     1.5rem;
+    margin-bottom:      0;
+    background-color:       rgba(0,0,0,.03);
+    border-bottom:      1px solid rgba(0,0,0,0.125);
 
-.masthead {
-    background-image: url('../../public/img/imageaccueil.jpeg');
-    background-attachment: fixed;
-    display: flex;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    text-align: center;
-    padding: 100px 0 100px;
-    color: rgb(255, 255, 255);
 }
 
 
 
-
-header.masthead .page-heading, header.masthead .post-heading, header.masthead .site-heading {
-    padding: 200px 0 150px;
-    color: #fff;
-    text-align: center;
-    margin: auto;
+.masthead
+{
+    background-image:       url('../../public/img/imageaccueil.jpeg');
+    background-attachment:      fixed;
+    display:        flex;
+    background-size:        cover;
+    background-position:        center;
+    background-repeat:      no-repeat;
+    text-align:     center;
+    padding:        100px 0 100px;
+    color:      rgb(255, 255, 255);
 }
 
 
 
-.mx-auto {
-    padding: 100px 0 100px;
+
+header.masthead .page-heading, header.masthead .post-heading, header.masthead .site-heading
+{
+    padding:        200px 0 150px;
+    color:      #fff;
+    text-align:     center;
+    margin:     auto;
 }
 
 
-.container {
-    text-align: center;
+
+.mx-auto
+{
+    padding:        100px 0 100px;
 }
 
-.logo {
-    text-align: center;
-    padding: 20px;
+
+.container
+{
+    text-align:     center;
+}
+
+.logo
+{
+    text-align:     center;
+    padding:        20px;
 }
