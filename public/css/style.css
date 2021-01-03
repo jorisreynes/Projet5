@@ -1,9 +1,9 @@
 @font-face
-{
-    font-family:  'Montserrat';
-    src: url('montserrat/Montserrat-Light.otf');
-    font-weight:  normal;
-    font-style:  normal;
+ {
+  font-family: 'Montserrat';
+  src: url('montserrat/Montserrat-Light.otf');
+  font-weight: normal;
+  font-style: normal;
 }
 
 h1,h2
@@ -13,7 +13,7 @@ h1,h2
 
 .button
 {
-    background-color:  rgb(204, 0, 0);
+    background-color: rgb(204, 0, 0);
     opacity:  0.7;
     Color:  white;
     padding:  10px 40px;
