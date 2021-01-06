@@ -5,6 +5,9 @@ require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/ConnexionSubscription.php');
 
+//__autoload(ConnexionSubscriptionManager);
+
+
 function listPosts()
 {
     $postManager = new \OpenClassrooms\Blog\Model\PostManager();
@@ -25,7 +28,10 @@ function listComments()
 function validateComment($postId)
 {
     $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
-    $posts = $commentManager->updateComment($_GET['id']);
+    //$posts = $commentManager->updateComment($_GET['id']);
+    $posts = $commentManager->updateComment(filter_input(INPUT_GET, 'id'));
+
+
 
     
 }
@@ -33,7 +39,7 @@ function validateComment($postId)
 function deleteComment($postId)
 {
     $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
-    $posts = $commentManager->removeComment($_GET['id']);
+    $posts = $commentManager->removeComment(filter_input(INPUT_GET, 'id'));
 
     
 }
@@ -53,8 +59,8 @@ function post()
     $postManager = new \OpenClassrooms\Blog\Model\PostManager();
     $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
 
-    $post = $postManager->getPost($_GET['id']);
-    $comments = $commentManager->getComments($_GET['id']);
+    $post = $postManager->getPost(filter_input(INPUT_GET, 'id'));
+    $comments = $commentManager->getComments(filter_input(INPUT_GET, 'id'));
 
     require('view/frontend/postView.php');
 }
