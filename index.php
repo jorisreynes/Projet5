@@ -28,7 +28,7 @@ try {
         elseif (filter_input(INPUT_GET, 'action') == 'newpost') {
            
             if (isset($_GET['title']) && $_GET['content']){
-               addpost($_GET['title'], $_GET['content']);
+               addpost(filter_input(INPUT_GET, 'title'), filter_input(INPUT_GET, 'content'));
            }
             else {
                newpost('', '');
@@ -39,7 +39,7 @@ try {
            
 
             if (isset($_POST['title']) && $_POST['content']){
-                addpost($_POST['title'], $_POST['content']);
+                addpost(filter_input(INPUT_POST, 'title'), filter_input(INPUT_POST, 'content'));
             }
             else {
                 newpost('', '');
@@ -52,7 +52,7 @@ try {
         elseif (filter_input(INPUT_GET, 'action') == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                    addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+                    addComment(filter_input(INPUT_GET, 'id'), filter_input(INPUT_POST, 'author'), filter_input(INPUT_POST, 'comment'));
                 }
                 else {
                     throw new Exception('Tous les champs ne sont pas remplis !');
@@ -64,13 +64,13 @@ try {
         }
 
         elseif (filter_input(INPUT_GET, 'action') == 'validatecomment') {
-            validateComment($_GET['id']);
+            validateComment(filter_input(INPUT_GET, 'id'));
            
         }
 
 
         elseif (filter_input(INPUT_GET, 'action') == 'deletecomment') {
-            deleteComment($_GET['id']);
+            deleteComment(filter_input(INPUT_GET, 'id'));
            
         }
 
@@ -81,7 +81,7 @@ try {
 
         elseif (filter_input(INPUT_GET, 'action') == 'subscription') 
         {
-            subscriptioncontroller($_POST['pseudo'], $_POST['email'], $_POST['password']);
+            subscriptioncontroller(filter_input(INPUT_POST, 'pseudo'), filter_input(INPUT_POST, 'email'), filter_input(INPUT_POST, 'password'));
         }
 
 
@@ -92,7 +92,9 @@ try {
 
 
         elseif (filter_input(INPUT_GET, 'action') == 'connexion') {
-            connexion($_POST['pseudo'], $_POST['password']);
+            connexion(filter_input(INPUT_POST, 'pseudo'), filter_input(INPUT_POST, 'password'));
+
+            
         }
 
       
