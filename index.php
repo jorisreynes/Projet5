@@ -13,7 +13,7 @@ try {
 
 
         elseif (filter_input(INPUT_GET, 'action') == 'post') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
+            if (null !== (filter_input(INPUT_GET, 'id')) && $_GET['id'] > 0) {
                 post();
             }
             else {
@@ -25,7 +25,7 @@ try {
 
 
 
-        elseif ($_GET['action'] == 'newpost') {
+        elseif (filter_input(INPUT_GET, 'action') == 'newpost') {
            
             if (isset($_GET['title']) && $_GET['content']){
                addpost($_GET['title'], $_GET['content']);
@@ -34,7 +34,7 @@ try {
                newpost('', '');
             }
         }
-        elseif ($_GET['action'] == 'addpost') {
+        elseif (filter_input(INPUT_GET, 'action') == 'addpost') {
 
            
 
@@ -49,7 +49,7 @@ try {
 
 
 
-        elseif ($_GET['action'] == 'addComment') {
+        elseif (filter_input(INPUT_GET, 'action') == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     addComment($_GET['id'], $_POST['author'], $_POST['comment']);
