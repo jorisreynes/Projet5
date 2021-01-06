@@ -6,7 +6,8 @@ require('controller/frontend.php');
 try {
  
     if (isset($_GET['action'])) {
-        if ($_GET['action'] == 'listPosts') {
+        //if ($_GET['action'] == 'listPosts') {
+        if (filter_input(INPUT_GET, 'action') == 'listPosts') {
             listPosts();
         }
 
