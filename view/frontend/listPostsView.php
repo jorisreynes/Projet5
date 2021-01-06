@@ -41,11 +41,11 @@ while ($data = $posts->fetch())
             <?php
             if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
                 {
-                   echo '<a href="#">Supprimer un post</a>';
+                   echo '<a href="#" class="btn btn-secondary mb-2">Supprimer le post</a>';
                 }
             ?>    
 
-            <a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Voir le post</a>
+            <a href="index.php?action=post&amp;id=<?= $data['id'] ?>" class="btn btn-secondary mb-2">Voir le post</a>
         </p>
 
 <?php
@@ -57,7 +57,6 @@ $posts->closeCursor();
     <a href="index.php?action=newpost" class="button" target="_blank">Ajouter un post</a>
 
 </div>
-
 
 
 

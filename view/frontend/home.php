@@ -61,8 +61,15 @@ session_start();?>
     <br>
                   
     
-                <a href="index.php?action=validatecomment&amp;id=<?= $donnees['id'] ?>">Valider le post</a>
-                <a href="index.php?action=deletecomment&amp;id=<?= $donnees['id'] ?>"> Supprimer le post</a>
+                <a href="index.php?action=validatecomment&amp;id=<?= $donnees['id'] ?>" class="btn btn-secondary mb-2">Valider le commentaire</a>
+                <a href="index.php?action=deletecomment&amp;id=<?= $donnees['id'] ?>" class="btn btn-secondary mb-2"> Supprimer le commentaire</a>
+            
+
+
+                
+
+
+
             </p>
 
             <?php
@@ -71,28 +78,6 @@ session_start();?>
 $reponse->closeCursor();
 }
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                
-
-
-                   
-
-
 
 
 
