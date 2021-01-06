@@ -47,7 +47,7 @@ class ConnexionSubscriptionManager extends Manager
     
         if (!$resultat)
         {
-            echo 'Mauvais identifiant ou mot de passe !';
+            print_r ( 'Mauvais identifiant ou mot de passe !');
         }
         else
         {
@@ -62,7 +62,7 @@ class ConnexionSubscriptionManager extends Manager
             }
             else 
             {
-                echo 'Mauvais identifiant ou mot de passe !';
+                print_r( 'Mauvais identifiant ou mot de passe !');
             }
         }
     }   

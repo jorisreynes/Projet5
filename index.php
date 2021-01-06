@@ -130,5 +130,5 @@ try {
     }
 }
 catch(Exception $e) {
-    echo 'Erreur : ' . $e->getMessage();
+    print_r ('Erreur : ' . $e->getMessage());
 }
