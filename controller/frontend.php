@@ -123,7 +123,9 @@ function connexion($pseudo, $password)
 {
     $connexionSubscriptionManager = new \OpenClassrooms\Blog\Model\ConnexionSubscriptionManager();
 
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $password = password_hash(filter_input(INPUT_POST, 'password'), PASSWORD_DEFAULT);
+
+   
 
     $affectedLines = $connexionSubscriptionManager->connexion($pseudo, $password);
 
@@ -136,7 +138,7 @@ function subscriptioncontroller($pseudo, $email, $password)
 {
     $connexionSubscriptionManager = new \OpenClassrooms\Blog\Model\ConnexionSubscriptionManager();
 
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $password = password_hash(filter_input(INPUT_POST, 'password'), PASSWORD_DEFAULT);
 
     $affectedLines = $connexionSubscriptionManager->subscription($pseudo, $email, $password);
 

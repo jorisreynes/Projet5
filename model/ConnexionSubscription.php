@@ -40,7 +40,7 @@ class ConnexionSubscriptionManager extends Manager
 
     
   
-    $isPasswordCorrect = password_verify($_POST['password'], $resultat['password']);
+    $isPasswordCorrect = password_verify(filter_input(INPUT_POST, 'password'), $resultat['password']);
 
     
 
@@ -56,6 +56,7 @@ class ConnexionSubscriptionManager extends Manager
                 session_start();
                 $_SESSION['id'] = $resultat['id'];
                 $_SESSION['pseudo'] = $pseudo;
+                //$_SESSION['pseudo'] = $pseudo;
                 //echo 'Vous êtes connecté !';
                 header("Location: http://localhost:8888/Projet5/index.php");
             }
