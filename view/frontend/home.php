@@ -39,7 +39,7 @@ session_start();?>
 <?php
 
     if (isset($_SESSION['id']) AND isset($_SESSION['pseudo'])){
-        echo 'Commentaires à valider' .'<br /><br />';
+        return 'Commentaires à valider' .'<br /><br />';
 
         $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'root');
 
