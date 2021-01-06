@@ -12,7 +12,7 @@ try {
         }
 
 
-        elseif ($_GET['action'] == 'post') {
+        elseif (filter_input(INPUT_GET, 'action') == 'post') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 post();
             }
@@ -63,35 +63,35 @@ try {
             }
         }
 
-        elseif ($_GET['action'] == 'validatecomment') {
+        elseif (filter_input(INPUT_GET, 'action') == 'validatecomment') {
             validateComment($_GET['id']);
            
         }
 
 
-        elseif ($_GET['action'] == 'deletecomment') {
+        elseif (filter_input(INPUT_GET, 'action') == 'deletecomment') {
             deleteComment($_GET['id']);
            
         }
 
 
-        elseif ($_GET['action'] == 'subscriptionpage') {
+        elseif (filter_input(INPUT_GET, 'action') == 'subscriptionpage') {
             subscriptionpage();
         }
 
-        elseif ($_GET['action'] == 'subscription') 
+        elseif (filter_input(INPUT_GET, 'action') == 'subscription') 
         {
             subscriptioncontroller($_POST['pseudo'], $_POST['email'], $_POST['password']);
         }
 
 
 
-        elseif ($_GET['action'] == 'connexionpage') {
+        elseif (filter_input(INPUT_GET, 'action') == 'connexionpage') {
             connexionpage();
         }
 
 
-        elseif ($_GET['action'] == 'connexion') {
+        elseif (filter_input(INPUT_GET, 'action') == 'connexion') {
             connexion($_POST['pseudo'], $_POST['password']);
         }
 
@@ -101,7 +101,7 @@ try {
 
         
 
-        elseif ($_GET['action'] == 'deconnexion') {
+        elseif (filter_input(INPUT_GET, 'action') == 'deconnexion') {
             deconnexion();
         }
 
