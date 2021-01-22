@@ -24,12 +24,9 @@ try {
         elseif (filter_input(INPUT_GET, 'action') == 'newpost') {
            
             if (isset($_GET['title']) && filter_input(INPUT_GET, 'content')){
-               //addpost(filter_input(INPUT_GET, 'title'), filter_input(INPUT_GET, 'content'));
-               echo "OK";
            }
             else {
                newpost('', '');
-               //echo "KO";
             }
         }
 
@@ -38,8 +35,6 @@ try {
                 addpost(filter_input(INPUT_POST, 'title'), filter_input(INPUT_POST, 'chapo'), filter_input(INPUT_POST, 'content'));
             }
             else {
-                //newpost('', '');
-                echo 'OK';
             }
         }
 
