@@ -11,7 +11,6 @@ try {
             listPosts();
         }
 
-
         elseif (filter_input(INPUT_GET, 'action') == 'post') {
             if (null !== (filter_input(INPUT_GET, 'id')) && filter_input(INPUT_GET, 'id') > 0) {
                 post();
@@ -21,33 +20,28 @@ try {
             }
         }
 
-    
-
-
 
         elseif (filter_input(INPUT_GET, 'action') == 'newpost') {
            
             if (isset($_GET['title']) && filter_input(INPUT_GET, 'content')){
-               addpost(filter_input(INPUT_GET, 'title'), filter_input(INPUT_GET, 'content'));
+               //addpost(filter_input(INPUT_GET, 'title'), filter_input(INPUT_GET, 'content'));
+               echo "OK";
            }
             else {
                newpost('', '');
+               //echo "KO";
             }
         }
+
         elseif (filter_input(INPUT_GET, 'action') == 'addpost') {
-
-           
-
-            if (isset($_POST['title']) && filter_input(INPUT_POST, 'content')){
-                addpost(filter_input(INPUT_POST, 'title'), filter_input(INPUT_POST, 'content'));
+            if (isset($_POST['title']) && filter_input(INPUT_POST, 'content') && filter_input(INPUT_POST, 'chapo')){
+                addpost(filter_input(INPUT_POST, 'title'), filter_input(INPUT_POST, 'chapo'), filter_input(INPUT_POST, 'content'));
             }
             else {
-                newpost('', '');
+                //newpost('', '');
+                echo 'OK';
             }
         }
-
-
-
 
         elseif (filter_input(INPUT_GET, 'action') == 'addComment') {
             if (isset($_GET['id']) && filter_input(INPUT_GET, 'id') > 0) {
@@ -65,13 +59,14 @@ try {
 
         elseif (filter_input(INPUT_GET, 'action') == 'validatecomment') {
             validateComment(filter_input(INPUT_GET, 'id'));
-           
         }
-
 
         elseif (filter_input(INPUT_GET, 'action') == 'deletecomment') {
             deleteComment(filter_input(INPUT_GET, 'id'));
-           
+        }
+
+        elseif (filter_input(INPUT_GET, 'action') == 'deletepost') {
+            deletePost(filter_input(INPUT_GET, 'id'));
         }
 
 
@@ -85,7 +80,6 @@ try {
         }
 
 
-
         elseif (filter_input(INPUT_GET, 'action') == 'connexionpage') {
             connexionpage();
         }
@@ -93,39 +87,20 @@ try {
 
         elseif (filter_input(INPUT_GET, 'action') == 'connexion') {
             connexion(filter_input(INPUT_POST, 'pseudo'), filter_input(INPUT_POST, 'password'));
-
-            
         }
 
-      
-
-
-
-        
 
         elseif (filter_input(INPUT_GET, 'action') == 'deconnexion') {
             deconnexion();
         }
 
+        elseif (filter_input(INPUT_GET, 'action') == 'updatethepost') {
+            updatethePost(filter_input(INPUT_GET, 'id'));
+        }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-       
     }
     else {
-       
         home();
     }
 }

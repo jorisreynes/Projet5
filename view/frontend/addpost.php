@@ -20,19 +20,18 @@
     <h1>Ajouter un post</h1>
 
         <form action="index.php?action=addpost" method="POST">
-
-
-
         <div>
             <label for="title">Titre</label><br />
             <input type="text" class="form-control" id="title" name="title" />
         </div>
-
+        <div>
+            <label for="chapo">Chapo</label><br />
+            <input type="text" class="form-control" id="chapo" name="chapo" />
+        </div>
         <div>
             <label for="content">Post</label><br />
             <textarea id="content" class="form-control" name="content"></textarea>
         </div>
-
         <div>
             <br>
             <input type="submit" />
