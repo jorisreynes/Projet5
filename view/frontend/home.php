@@ -213,11 +213,11 @@ if(isset($_POST['email'])) {
     mail($email_to, $email_subject, $email_message, $headers);
     ?>
      
-    <!-- mettez ici votre propre message de succès en html -->
+
      
     Merci de nous avoir contacté. Nous vous contacterons très bientôt.
      
-    <?php
+  <?php
 
     }
 
