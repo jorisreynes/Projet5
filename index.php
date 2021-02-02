@@ -6,7 +6,6 @@ require('controller/frontend.php');
 try {
  
     if (isset($_GET['action'])) {
-        //if ($_GET['action'] == 'listPosts') {
         if (filter_input(INPUT_GET, 'action') == 'listPosts') {
             listPosts();
         }
@@ -20,19 +19,18 @@ try {
             }
         }
 
-
         elseif (filter_input(INPUT_GET, 'action') == 'newpost') {
            
             if (isset($_GET['title']) && filter_input(INPUT_GET, 'content')){
            }
             else {
-               newpost('', '');
+               newPost('', '');
             }
         }
 
         elseif (filter_input(INPUT_GET, 'action') == 'addpost') {
             if (isset($_POST['title']) && filter_input(INPUT_POST, 'content') && filter_input(INPUT_POST, 'chapo')){
-                addpost(filter_input(INPUT_POST, 'title'), filter_input(INPUT_POST, 'chapo'), filter_input(INPUT_POST, 'content'));
+                addPost(filter_input(INPUT_POST, 'title'), filter_input(INPUT_POST, 'chapo'), filter_input(INPUT_POST, 'content'));
             }
             else {
             }
@@ -66,40 +64,29 @@ try {
 
 
         elseif (filter_input(INPUT_GET, 'action') == 'subscriptionpage') {
-            subscriptionpage();
+            subscriptionPage();
         }
 
         elseif (filter_input(INPUT_GET, 'action') == 'subscription') 
         {
-            subscriptioncontroller(filter_input(INPUT_POST, 'pseudo'), filter_input(INPUT_POST, 'email'), filter_input(INPUT_POST, 'password'));
+            subscriptionController(filter_input(INPUT_POST, 'pseudo'), filter_input(INPUT_POST, 'email'), filter_input(INPUT_POST, 'password'));
         }
-
 
         elseif (filter_input(INPUT_GET, 'action') == 'connexionpage') {
-            connexionpage();
+            connexionPage();
         }
-
 
         elseif (filter_input(INPUT_GET, 'action') == 'connexion') {
             connexion(filter_input(INPUT_POST, 'pseudo'), filter_input(INPUT_POST, 'password'));
         }
 
-
         elseif (filter_input(INPUT_GET, 'action') == 'deconnexion') {
             deconnexion();
         }
-/*
-        elseif (filter_input(INPUT_GET, 'action') == 'updatethepost') {
-            updatethePost(filter_input(INPUT_GET, 'id'));
-        }
-      
-        elseif (filter_input(INPUT_GET, 'action') == 'updatethepost') {
-            updatethePost();
-        }
-*/  
+ 
         elseif (filter_input(INPUT_GET, 'action') == 'updatethepost') {
             if (null !== (filter_input(INPUT_GET, 'id')) && filter_input(INPUT_GET, 'id') > 0) {
-                updatethePost();
+                updateThePost();
             }
             else {
                 throw new Exception('Aucun identifiant de billet envoyé');
@@ -113,11 +100,6 @@ try {
             else {
             }
         }
-
-
-
-
-
     }
     else {
         home();

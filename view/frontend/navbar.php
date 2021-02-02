@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static">
 
-    
         <img src="public/img/logo3.png" width="80px" height="27px">
         <a class="navbar-brand" href="#"></a>
 
@@ -22,9 +21,6 @@
             </li>
             <li class="nav-item active">
 
-
-
-
             <?php
             if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
                 {
@@ -35,14 +31,8 @@
                 }
             ?> 
 
-
-
             </li>
             </ul>
-
-            
-
         </div>
-
 </nav>
 

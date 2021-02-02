@@ -15,15 +15,11 @@
 
     <?php include("navbar.php"); ?>
 
-  
-
     <div class="col-lg-8 col-md-10 mx-auto">
 
     <h1>Inscription</h1>
 
     <form action="index.php?action=subscription" method="POST">
-
-
 
         <div>
             <label for="pseudo">Pseudo</label><br />
@@ -39,7 +35,6 @@
             <label for="password">Password</label><br />
             <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe"/>
         </div>
-
 
         <div>
             <br>

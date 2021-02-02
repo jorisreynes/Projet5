@@ -15,12 +15,9 @@
 
     <?php include("navbar.php"); ?>
 
- 
-
     <div class="col-lg-8 col-md-10 mx-auto">
 
     <h1>Connexion</h1>
-
 
         <form name="subscription" id="subscriptionForm" novalidate="" form action="index.php?action=connexion" method="POST">
         
@@ -47,7 +44,6 @@
     </div>
 
     <?php include("footer.php"); ?>
-
        
     </body>
 </html>

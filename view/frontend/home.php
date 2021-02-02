@@ -37,14 +37,11 @@ session_start();?>
       $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'root');
       $reponse = $bdd->query('SELECT * FROM comments WHERE comment_status =\'avalider\'');
 ?>
-     
 
-          
 <?php
       while ($donnees = $reponse->fetch())
       {
       ?>
-
 
 <table id="mytable" class="table table-bordred table-striped">
         <thead>
@@ -64,7 +61,6 @@ session_start();?>
 
 </table>
    
-
 <?php
 }
     
@@ -72,10 +68,7 @@ $reponse->closeCursor();
 }
 ?>
 
-
- 
 <br><br><h1><span class="red">Vous</span> pouvez utiliser le formulaire ci dessous pour me contacter</h1>
-
 
   <form action="" method="post" >
 
@@ -108,9 +101,6 @@ $reponse->closeCursor();
 
     </form>
 
-
-
-
 <?php
 if(isset($_POST['email'])) {
  
@@ -129,7 +119,6 @@ if(isset($_POST['email'])) {
         die();
     }
  
- 
     // si la validation des données attendues existe
      if(!isset($_POST['nom']) ||
         !isset($_POST['prenom']) ||
@@ -137,12 +126,11 @@ if(isset($_POST['email'])) {
         !isset($_POST['telephone']) ||
         !isset($_POST['commentaire'])) {
         died(
+
 'Nous sommes désolés, mais le formulaire que vous avez soumis semble poser' .
 ' problème.');
     }
- 
-     
- 
+
     $nom = $_POST['nom']; // required
     $prenom = $_POST['prenom']; // required
     $email = $_POST['email']; // required
@@ -192,15 +180,13 @@ if(isset($_POST['email'])) {
     'X-Mailer: PHP/' . phpversion();
     mail($email_to, $email_subject, $email_message, $headers);
     ?>
-     
 
-     
     Merci de nous avoir contacté. Nous vous contacterons très bientôt.
      
   <?php
 
     }
-
+    
 ?>
 
 </div>

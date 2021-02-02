@@ -66,24 +66,24 @@ function addComment($postId, $author, $comment)
     }
 }
 
-function addpost($title, $chapo, $content)
+function addPost($title, $chapo, $content)
 {
     $postManager = new \OpenClassrooms\Blog\Model\PostManager();
     $affectedLines = $postManager->postPost($title, $chapo, $content);
     header("Location: http://localhost:8888/Projet5/index.php?action=listPosts");
 }
 
-function newpost($title, $content)
+function newPost($title, $content)
 {
     require('view/frontend/addpost.php');
 }
 
-function subscriptionpage()
+function subscriptionPage()
 {
     require('view/frontend/subscription.php');
 }
 
-function connexionpage()
+function connexionPage()
 {
     require('view/frontend/connexion.php');
 }
@@ -96,7 +96,7 @@ function connexion($pseudo, $password)
     require('view/frontend/connexion.php');
 }
 
-function subscriptioncontroller($pseudo, $email, $password)
+function subscriptionController($pseudo, $email, $password)
 {
     $connexionSubscriptionManager = new \OpenClassrooms\Blog\Model\ConnexionSubscriptionManager();
     $password = password_hash(filter_input(INPUT_POST, 'password'), PASSWORD_DEFAULT);
@@ -104,7 +104,7 @@ function subscriptioncontroller($pseudo, $email, $password)
     require('view/frontend/subscription.php');
 }
 
-function updatethePost()
+function updateThePost()
 {
     $postManager = new \OpenClassrooms\Blog\Model\PostManager();
     $post = $postManager->getPost(filter_input(INPUT_GET, 'id'));
@@ -115,21 +115,8 @@ function updatePost($id, $title, $chapo, $content)
 {
     $postManager = new \OpenClassrooms\Blog\Model\PostManager();
     $posts = $postManager->updatePosts(filter_input(INPUT_GET, 'id'), $title, $chapo, $content);
-    //echo $_POST['title'];
-    //echo $_POST['content'];
-    //echo $_POST['chapo'];
-    //echo $_GET['id'];
 }
 
-
-
-/*function updatethePost($postId)
-{
-    //$postManager = new \OpenClassrooms\Blog\Model\PostManager();
-    //$posts = $postManager->updatePost(filter_input(INPUT_GET, 'id'));
-    require('view/frontend/updatePost.php');
-}
-*/
 function deconnexion()
 {
     session_start();
