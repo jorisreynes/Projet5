@@ -88,10 +88,34 @@ try {
         elseif (filter_input(INPUT_GET, 'action') == 'deconnexion') {
             deconnexion();
         }
-
+/*
         elseif (filter_input(INPUT_GET, 'action') == 'updatethepost') {
             updatethePost(filter_input(INPUT_GET, 'id'));
         }
+      
+        elseif (filter_input(INPUT_GET, 'action') == 'updatethepost') {
+            updatethePost();
+        }
+*/  
+        elseif (filter_input(INPUT_GET, 'action') == 'updatethepost') {
+            if (null !== (filter_input(INPUT_GET, 'id')) && filter_input(INPUT_GET, 'id') > 0) {
+                updatethePost();
+            }
+            else {
+                throw new Exception('Aucun identifiant de billet envoyé');
+            }
+        }
+
+        elseif (filter_input(INPUT_GET, 'action') == 'updatePost') {
+            if (isset($_POST['title']) && filter_input(INPUT_POST, 'content') && filter_input(INPUT_POST, 'chapo')){
+                updatePost(filter_input(INPUT_GET, 'id'), filter_input(INPUT_POST, 'title'), filter_input(INPUT_POST, 'chapo'), filter_input(INPUT_POST, 'content'));
+            }
+            else {
+            }
+        }
+
+
+
 
 
     }

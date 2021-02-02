@@ -12,43 +12,35 @@
     </head>
         
     <body>
-
+      
     <?php include("navbar.php"); ?>
-
-  
 
     <div class="col-lg-8 col-md-10 mx-auto">
 
-    <h1>Inscription</h1>
+    <h1>Modifier votre commentaire</h1>
 
-    <form action="index.php?action=subscription" method="POST">
-
-
-
+        <form action="index.php?action=updatePost&amp;id=<?= $post['id'] ?>" method="POST">
         <div>
-            <label for="pseudo">Pseudo</label><br />
-            <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Pseudo"/>
+            <label for="title">Titre</label><br />
+            <input type="text" class="form-control" id="title" name="title" value="<?= htmlspecialchars($post['title']) ?>"/>
         </div>
-
         <div>
-            <label for="email">Email</label><br />
-            <input type="text" class="form-control" id="email" name="email" placeholder="Adresse email"/>
+            <label for="chapo">Chapo</label><br />
+            <input type="text" class="form-control" id="chapo" name="chapo" value="<?= nl2br(htmlspecialchars($post['chapo'])) ?>"/>
         </div>
-
         <div>
-            <label for="password">Password</label><br />
-            <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe"/>
+            <label for="content">Post</label><br />
+            <input type="text" class="form-control" id="content" name="content" value="<?= nl2br(htmlspecialchars($post['content'])) ?>"/>
         </div>
-
-
         <div>
             <br>
-            <button type="submit" class="button" id="sendMessageButton">Envoyer</button>
+            <input type="submit" />
         </div>
-
-    </form>
-
+        </form>
+        
     </div>
+
+
 
     <?php include("footer.php"); ?>
 

@@ -17,12 +17,14 @@ session_start();?>
     <?php include("navbar.php"); ?>
 
 <header class="masthead" id="banner">
+<!--img src="public/img/imageaccueil.jpeg" class="masthead"-->
 
 <div class="site-heading">
 <h1><span class="red">Joris</span> Reynes</h1>                        
 <h2>Le développeur qu'il vous faut</h2>                 
 <br><br>
-<a href="public/img/CV.pdf" class="button" target="_blank">Télécharger CV</a></div>
+<a href="public/img/CV.pdf" class="button" target="_blank">Télécharger CV</a>
+</div>
 
 </header>
 
@@ -75,61 +77,39 @@ $reponse->closeCursor();
 <br><br><h1><span class="red">Vous</span> pouvez utiliser le formulaire ci dessous pour me contacter</h1>
 
 
-     <form name="contact_form" method="post" action="">
-    <table width="500">
-    <tr>
-     <td valign="top">
-      <label for="nom">Nom *</label>
-     </td>
-     <td valign="top">
-      <input  type="text" name="nom" maxlength="50" size="30" value="<?php if (
-isset($_POST['nom'])) echo htmlspecialchars($_POST['nom']);?>">
-     </td>
-    </tr>
-    <tr>
-     <td valign="top"">
-      <label for="prenom">Prénom *</label>
-     </td>
-     <td valign="top">
-      <input  type="text" name="prenom" maxlength="50" size="30" value="<?php if
- (isset($_POST['prenom'])) echo htmlspecialchars($_POST['prenom']);?>">
-     </td>
-    </tr>
-    <tr>
-     <td valign="top">
-      <label for="email">Email Addresse *</label>
-     </td>
-     <td valign="top">
-      <input  type="text" name="email" maxlength="80" size="30" value="<?php if 
-(isset($_POST['email'])) echo htmlspecialchars($_POST['email']);?>">
-     </td>
-    </tr>
-    <tr>
-     <td valign="top">
+  <form action="" method="post" >
+
+<div>
+      <label for="nom">Nom</label>
+      <input  type="text" name="nom" class="form-control" value="<?php if (isset($_POST['nom'])) echo htmlspecialchars($_POST['nom']);?>">
+</div>
+
+<div>
+      <label for="prenom">Prénom</label>
+      <input  type="text" name="prenom" class="form-control" value="<?php if (isset($_POST['prenom'])) echo htmlspecialchars($_POST['prenom']);?>">
+ </div>
+
+<div>
+      <label for="email">Addresse email</label>
+      <input  type="text" name="email" class="form-control" value="<?php if (isset($_POST['email'])) echo htmlspecialchars($_POST['email']);?>">
+</div>
+
+<div>
       <label for="telephone">Téléphone</label>
-     </td>
-     <td valign="top">
-      <input  type="text" name="telephone" maxlength="30" size="30" value="
-<?php if (isset($_POST['telephone'])) echo htmlspecialchars($_POST['telephone'])
-;?>">
-     </td>
-    </tr>
-    <tr>
-     <td valign="top">
-      <label for="commentaire">Commentaire *</label>
-     </td>
-     <td valign="top">
-      <textarea  name="commentaire" cols="28" rows="10"><?php if (isset($_POST[
-'commentaire'])) echo htmlspecialchars($_POST['commentaire']);?></textarea>
-     </td>
-    </tr>
-    <tr>
-     <td colspan="2" style="text-align:center">
+      <input  type="text" name="telephone" class="form-control" value="<?php if (isset($_POST['telephone'])) echo htmlspecialchars($_POST['telephone']);?>">
+</div>
+
+<div>
+      <label for="commentaire">Commentaire</label>
+      <textarea  class="form-control" name="commentaire" ><?php if (isset($_POST['commentaire'])) echo htmlspecialchars($_POST['commentaire']);?></textarea>
+      <br>
       <input type="submit" class="button" value=" Envoyer ">
-     </td>
-    </tr>
-    </table>
+</div>
+
     </form>
+
+
+
 
 <?php
 if(isset($_POST['email'])) {
@@ -224,6 +204,7 @@ if(isset($_POST['email'])) {
 ?>
 
 </div>
+
 <?php include("footer.php"); ?>
 </body>
 </html>

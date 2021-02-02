@@ -66,8 +66,6 @@ function addComment($postId, $author, $comment)
     }
 }
 
-
-
 function addpost($title, $chapo, $content)
 {
     $postManager = new \OpenClassrooms\Blog\Model\PostManager();
@@ -106,13 +104,32 @@ function subscriptioncontroller($pseudo, $email, $password)
     require('view/frontend/subscription.php');
 }
 
-function updatethePost($postId)
+function updatethePost()
 {
     $postManager = new \OpenClassrooms\Blog\Model\PostManager();
-    $posts = $postManager->updatePost(filter_input(INPUT_GET, 'id'));
+    $post = $postManager->getPost(filter_input(INPUT_GET, 'id'));
+    require('view/frontend/updatePost.php');
+}
+
+function updatePost($id, $title, $chapo, $content)
+{
+    $postManager = new \OpenClassrooms\Blog\Model\PostManager();
+    $posts = $postManager->updatePosts(filter_input(INPUT_GET, 'id'), $title, $chapo, $content);
+    //echo $_POST['title'];
+    //echo $_POST['content'];
+    //echo $_POST['chapo'];
+    //echo $_GET['id'];
 }
 
 
+
+/*function updatethePost($postId)
+{
+    //$postManager = new \OpenClassrooms\Blog\Model\PostManager();
+    //$posts = $postManager->updatePost(filter_input(INPUT_GET, 'id'));
+    require('view/frontend/updatePost.php');
+}
+*/
 function deconnexion()
 {
     session_start();
