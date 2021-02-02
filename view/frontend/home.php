@@ -55,7 +55,7 @@ session_start();?>
         </thead>
     <tbody>
     <tr>
-    <td><?= Esc_html($donnees['author']) ?></td>
+    <td><?= htmlspecialchars($donnees['author']) ?></td>
     <td><?= nl2br(htmlspecialchars($donnees['comment'])) ?></td>
     <td><a href="index.php?action=validatecomment&amp;id=<?= $donnees['id'] ?>" class="btn btn-secondary mb-2">Valider le commentaire</a></td>
     <td><a href="index.php?action=deletecomment&amp;id=<?= $donnees['id'] ?>" class="btn btn-secondary mb-2"> Supprimer le commentaire</a></td>
@@ -112,6 +112,7 @@ $reponse->closeCursor();
 
 
 <?php
+
 if(isset($_POST['email'])) {
  
     // EDIT THE 2 LINES BELOW AS REQUIRED
@@ -129,18 +130,29 @@ if(isset($_POST['email'])) {
         die();
     }
  
- 
+ /*
     // si la validation des données attendues existe
-     if(!isset($_POST['nom']) ||
+     if(null !== (filter_input(INPUT_POST, 'nom')) ||
+     null !== (filter_input(INPUT_POST, 'prenom')) ||
+     null !== (filter_input(INPUT_POST, 'email')) ||
+     null !== (filter_input(INPUT_POST, 'telephone')) ||
+     null !== (filter_input(INPUT_POST, 'commentaire'))){
+
+
+if(!isset($_POST['nom']) ||
         !isset($_POST['prenom']) ||
         !isset($_POST['email']) ||
         !isset($_POST['telephone']) ||
         !isset($_POST['commentaire'])) {
+
+
+
         died(
 'Nous sommes désolés, mais le formulaire que vous avez soumis semble poser' .
 ' problème.');
     }
- 
+
+ */    
      
  
     $nom = $_POST['nom']; // required

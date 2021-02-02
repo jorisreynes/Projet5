@@ -48,9 +48,9 @@ class PostManager extends Manager
     {
 
         $id=(filter_input(INPUT_GET, 'id'));
-        $title=(filter_input(INPUT_GET, 'title'));
-        $chapo=(filter_input(INPUT_GET, 'chapo'));
-        $content=(filter_input(INPUT_GET, 'content'));
+        $title=(filter_input(INPUT_POST, 'title'));
+        $chapo=(filter_input(INPUT_POST, 'chapo'));
+        $content=(filter_input(INPUT_POST, 'content'));
 
         $database = $this->dbConnect();
         $posts = $database->prepare("UPDATE posts SET title= '$title', chapo='$chapo', content='$content' WHERE id = '$id'");
