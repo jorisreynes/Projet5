@@ -47,16 +47,10 @@ class PostManager extends Manager
     public function updatePosts($id, $title, $chapo, $content)
     {
 
-
-
-
-
         $id=(filter_input(INPUT_GET, 'id'));
-
-        //$id=$_GET['id'];
-        $title=$_POST['title'];
-        $chapo=$_POST['chapo'];
-        $content=$_POST['content'];
+        $title=(filter_input(INPUT_GET, 'title'));
+        $chapo=(filter_input(INPUT_GET, 'chapo'));
+        $content=(filter_input(INPUT_GET, 'content'));
 
         $database = $this->dbConnect();
         $posts = $database->prepare("UPDATE posts SET title= '$title', chapo='$chapo', content='$content' WHERE id = '$id'");
