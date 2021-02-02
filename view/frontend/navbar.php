@@ -24,10 +24,14 @@
             <?php
             if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
                 {
-                   echo '<a class="nav-link" href="index.php?action=deconnexion">Déconnnexion<span class="sr-only">(current)</span></a>';
+                   ?>
+                   <a class="nav-link" href="index.php?action=deconnexion">Déconnnexion<span class="sr-only">(current)</span></a>';
+                   <?php
                 }
                 else{
-                    echo '<a class="nav-link" href="index.php?action=connexionpage">Connnexion<span class="sr-only">(current)</span></a>';
+                    ?>
+                    <a class="nav-link" href="index.php?action=connexionpage">Connnexion<span class="sr-only">(current)</span></a>';
+                    <?php
                 }
             ?> 
 
@@ -35,4 +39,3 @@
             </ul>
         </div>
 </nav>
-
