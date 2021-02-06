@@ -37,3 +37,5 @@ To use this blog, you must follow this steps :
     Create a database and import the DataBase.sql file
     To use the Contact Form, enter your email in the line 118 in home.php
     Have fun using this blog !
+    
+    Lien Codacy https://app.codacy.com/gh/jorisreynes/Projet5/dashboard
