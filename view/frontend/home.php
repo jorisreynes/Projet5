@@ -8,12 +8,8 @@ session_start();?>
         <title>Accueil</title>
         <link href="public/css/style.css" rel="stylesheet" /> 
         <link href="public/css/bootstrap/css/bootstrap.min.css" rel="stylesheet" /> 
-        <!--
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-        -->
     </head>
 <body>
       
@@ -41,21 +37,22 @@ session_start();?>
       $reponse = $bdd->query('SELECT * FROM comments WHERE comment_status =\'avalider\'');
 ?>
      
+<table id="mytable" class="table table-bordred table-striped">
+<thead>
+  <th>Auteur</th>
+  <th>Commentaire</th>
+  <th>Edit</th>
+  <th>Delete</th>
+</thead>
 
-          
 <?php
       while ($donnees = $reponse->fetch())
       {
       ?>
 
 
-<table id="mytable" class="table table-bordred table-striped">
-        <thead>
-                <th>Auteur</th>
-                <th>Commentaire</th>
-                <th>Edit</th>
-                <th>Delete</th>
-        </thead>
+
+      
     <tbody>
     <tr>
     <td><?= htmlspecialchars($donnees['author']) ?></td>
@@ -65,7 +62,7 @@ session_start();?>
     </tr>
     </tbody>
 
-</table>
+
    
 
 <?php
@@ -75,7 +72,7 @@ $reponse->closeCursor();
 }
 ?>
 
-
+</table>
  
 <br><br><h1><span class="red">Vous</span> pouvez utiliser le formulaire ci dessous pour me contacter</h1>
 
@@ -140,21 +137,15 @@ if(isset($_POST['email'])) {
      null !== (filter_input(INPUT_POST, 'email')) ||
      null !== (filter_input(INPUT_POST, 'telephone')) ||
      null !== (filter_input(INPUT_POST, 'commentaire'))){
-
-
 if(!isset($_POST['nom']) ||
         !isset($_POST['prenom']) ||
         !isset($_POST['email']) ||
         !isset($_POST['telephone']) ||
         !isset($_POST['commentaire'])) {
-
-
-
         died(
 'Nous sommes désolés, mais le formulaire que vous avez soumis semble poser' .
 ' problème.');
     }
-
  */    
      
  

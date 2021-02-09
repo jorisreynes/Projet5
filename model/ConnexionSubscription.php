@@ -7,6 +7,7 @@ require_once("model/Manager.php");
 class ConnexionSubscriptionManager extends Manager
 
 {
+    //Permet de s'inscrir en saisissant son pseudo, son adresse email et son mot de passe
     public function subscription($pseudo, $email, $password)
     {
     $database = $this->dbConnect();

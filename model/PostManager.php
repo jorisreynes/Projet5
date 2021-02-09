@@ -23,6 +23,7 @@ class PostManager extends Manager
         return $post;
     }
 
+    //Permet de publier un post en utilisant le titre, le chapo et le contenu saisis dans le formulaire
     public function postPost($title, $chapo, $content)
     {
     $database = $this->dbConnect();
@@ -31,6 +32,7 @@ class PostManager extends Manager
     return $affectedLines;
     }
 
+    //Permet de supprimer un post de la base de données
     public function removePost($id)
     {
         $db = $this->dbConnect();
@@ -39,11 +41,13 @@ class PostManager extends Manager
         return $affectedLines;
     }
 
+
     public function updatePost($id)
     {
         header("Location: http://localhost:8888/Projet5/index.php");
     }
 
+    //Permet de modifier un post existant en reprenant automatiquement l'id, le titre, le chapo, et le contenu sont saisis dans le formulaire 
     public function updatePosts($id, $title, $chapo, $content)
     {
 
