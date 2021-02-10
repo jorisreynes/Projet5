@@ -5,6 +5,14 @@
   font-style: normal;
 }
 
+@media (max-width: 100px){
+#footeer{
+  position: absolute;
+  bottom:0;
+  width:100%;
+}
+}
+
 h1, h2 {
   font-family: 'Montserrat', 'Times New Roman';
 }
@@ -52,7 +60,7 @@ h3 {
 
 .masthead {
   background-image: url('../../public/img/imageaccueil.jpeg');
-  background-attachment: fixed;
+  /*background-attachment: fixed;*/
   display: flex;
   background-size: cover;
   background-position: center;
@@ -81,4 +89,6 @@ header.masthead .page-heading, header.masthead .post-heading, header.masthead .s
   text-align: center;
   padding: 20px;
 }
+
+
 
