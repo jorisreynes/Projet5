@@ -3,10 +3,12 @@
 namespace OpenClassrooms\Blog\Model;
 
 require_once("model/Manager.php");
+require_once("entity/Comment.php");
 
 class CommentManager extends Manager
 
 {
+    //Permet de récupérer un commentaire en particulier
     public function getComments($postId)
     {
         $database = $this->dbConnect();
@@ -15,6 +17,7 @@ class CommentManager extends Manager
         return $comments;
     }
 
+    //Permet de récupérer les commentaires
     public function getComment()
     {
         $database = $this->dbConnect();
@@ -22,7 +25,7 @@ class CommentManager extends Manager
         return $comments;
     }
 
-
+    //Permet de poster un commentaire
     public function postComment($postId, $author, $comment)
     {
         $database = $this->dbConnect();
@@ -32,6 +35,7 @@ class CommentManager extends Manager
         return $affectedLines;
     }
 
+    //Permet de modifier un commentaire précis
     public function updateComment($id)
     {
         $database = $this->dbConnect();
@@ -41,6 +45,7 @@ class CommentManager extends Manager
         return $affectedLines;
     }
 
+    //Permet de supprimer un commentaire précis
     public function removeComment($id)
     {
         $db = $this->dbConnect();

@@ -18,12 +18,12 @@ session_start();?>
 
 <div class="col-lg-8 col-md-10 mx-auto">
 
-<p><a href="index.php">Retour à la liste des billets</a></p>
+<p><a href="index.php?action=listPosts">Retour à la liste des billets</a></p>
 
 <div class="news">
     <h3>
         <?= htmlspecialchars($post['title']) ?>
-        <em>le <?= $post['creation_date_fr'] ?></em>
+        <em>par Admin le <?= $post['creation_date_fr'] ?></em>
     </h3>
     <p>
         <?= nl2br(htmlspecialchars($post['chapo'])) ?>

@@ -3,10 +3,12 @@
 namespace OpenClassrooms\Blog\Model;
 
 require_once("model/Manager.php");
+require_once("entity/Post.php");
 
 class PostManager extends Manager
 
 {
+    //Permet de récupérer les posts
     public function getPosts()
     {
         $database = $this->dbConnect();
@@ -14,6 +16,7 @@ class PostManager extends Manager
         return $req;
     }
 
+    // Permet de récupérer un post en particulier
     public function getPost($postId)
     {
         $database = $this->dbConnect();
@@ -51,13 +54,22 @@ class PostManager extends Manager
     public function updatePosts($id, $title, $chapo, $content)
     {
 
-        $id=(filter_input(INPUT_GET, 'id'));
-        $title=(filter_input(INPUT_POST, 'title'));
-        $chapo=(filter_input(INPUT_POST, 'chapo'));
-        $content=(filter_input(INPUT_POST, 'content'));
+        //$id=(filter_input(INPUT_GET, 'id'));
+        //$title=(filter_input(INPUT_POST, 'title'));
+        //$chapo=(filter_input(INPUT_POST, 'chapo'));
+        //$content=(filter_input(INPUT_POST, 'content'));
+
+      
+      
+
+
+
+
+
+
 
         $database = $this->dbConnect();
-        $posts = $database->prepare("UPDATE posts SET title= '$title', chapo='$chapo', content='$content' WHERE id = '$id'");
+        $posts = $database->prepare("UPDATE posts SET title= '$title', chapo='$chapo', content='$content', creation_date =NOW() WHERE id = '$id'");
         $affectedLines = $posts->execute(array());
         header("Location: http://localhost:8888/Projet5/index.php?action=listPosts");
         return $affectedLines;

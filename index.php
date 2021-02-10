@@ -96,6 +96,7 @@ try {
         elseif (filter_input(INPUT_GET, 'action') == 'updatePost') {
             if (null !== (filter_input(INPUT_POST, 'title')) && filter_input(INPUT_POST, 'content') && filter_input(INPUT_POST, 'chapo')){
                 updatePost(filter_input(INPUT_GET, 'id'), filter_input(INPUT_POST, 'title'), filter_input(INPUT_POST, 'chapo'), filter_input(INPUT_POST, 'content'));
+                //updatePost(filter_input(INPUT_GET, 'id'), filter_input(INPUT_POST, 'title'), filter_input(INPUT_POST, 'chapo'), filter_input(INPUT_POST, 'content'));
             }
             else {
             }

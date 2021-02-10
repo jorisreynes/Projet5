@@ -28,7 +28,7 @@
         </div>
         <div>
             <label for="content">Post</label><br />
-            <input type="text" class="form-control" id="content" name="content" value="<?= nl2br(htmlspecialchars($post['content'])) ?>"/>
+            <input type="text" class="form-control" id="content" name="content" value="<?= $post['content'] ?>"/>
         </div>
         <div>
             <br>

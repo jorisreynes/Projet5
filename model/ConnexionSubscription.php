@@ -16,6 +16,7 @@ class ConnexionSubscriptionManager extends Manager
     return $affectedLines;
     }
 
+    //Permet de se connecter en entrant les identifiants et en les comparants avec ceux en base de donnée
     public function connexion($pseudo, $password)
     {
     $database = $this->dbConnect();

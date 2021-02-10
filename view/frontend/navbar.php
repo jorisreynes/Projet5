@@ -16,17 +16,17 @@
             <li class="nav-item active">
             <a class="nav-link" href="index.php?action=listPosts">Les articles<span class="sr-only"></span></a>
             </li>
-            
-            <li class="nav-item active">
-            <a class="nav-link" href="index.php?action=subscriptionpage">Inscription<span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item active">
-
+           
             <?php
             if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
                 {
                    ?>
-                   <a class="nav-link" href="index.php?action=deconnexion">Déconnnexion<span class="sr-only"></span></a>
+                   <li class="nav-item active">
+                   <a class="nav-link" href="index.php?action=subscriptionpage">Inscription<span class="sr-only"></span></a>
+                   </li>
+                   <li class="nav-item active">
+                    <a class="nav-link" href="index.php?action=deconnexion">Déconnnexion<span class="sr-only"></span></a>
+                    </li>
                    <?php
                 }
                 else{

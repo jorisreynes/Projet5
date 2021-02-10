@@ -1,5 +1,6 @@
-
+<div id="footer">
 <footer class="py-5 bg-dark">
+
     <div class="container">
       <p class="m-0 text-center text-white">Projet 5 Formation Openclassroom Developpeur Backend<br>Joris REYNES </p>
       <a href="http://localhost:8888/Projet5/index.php?action=connexionpage">Se connecter</a>
@@ -12,7 +13,8 @@
 
 
         </div>
-
     </div>
 
+
 </footer>
+</div>

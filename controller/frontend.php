@@ -129,7 +129,8 @@ function updateThePost()
 function updatePost($id, $title, $chapo, $content)
 {
     $postManager = new \OpenClassrooms\Blog\Model\PostManager();
-    $posts = $postManager->updatePosts(filter_input(INPUT_GET, 'id'), $title, $chapo, $content);
+   // $posts = $postManager->updatePosts(filter_input(INPUT_GET, 'id'), $title, $chapo, $content);
+    $posts = $postManager->updatePosts($id, $title, $chapo, $content);
 }
 
 //Permet de se déconnecter

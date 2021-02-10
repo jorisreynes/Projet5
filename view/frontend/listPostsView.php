@@ -41,9 +41,15 @@ session_start();?>
 <?php
 }
 $posts->closeCursor();
-?>
+if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
+  {
+   ?>
     <br>
     <a href="index.php?action=newpost" class="button" target="_blank">Ajouter un post</a>
+    <?php
+    }
+    ?>   
+    
 </div>
 
 <?php include("footer.php"); ?>  
