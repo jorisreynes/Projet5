@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : mer. 10 fév. 2021 à 18:04
+-- Généré le : ven. 12 fév. 2021 à 16:23
 -- Version du serveur :  5.7.30
 -- Version de PHP : 7.4.9
 
@@ -36,11 +36,8 @@ CREATE TABLE `comments` (
 INSERT INTO `comments` (`id`, `post_id`, `author`, `comment`, `comment_status`, `comment_date`) VALUES
 (53, 21, 'Joris', 'Source\r\n\r\nhttps://www.silicon.fr/developpeurs-10-langages-programmation-apprecies-333211.html', 'valide', '2021-02-09 09:02:52'),
 (54, 20, 'Joris', 'Source\r\n\r\nhttps://www.01net.com/actualites/pourquoi-en-langage-informatique-on-utilise-des-0-et-des-1-504619.html', 'valide', '2021-02-09 09:03:43'),
-(55, 22, 'Joris', 'Source \r\n\r\nhttps://leblogducodeur.fr/pourquoi-apprendre-php/', 'valide', '2021-02-09 09:49:53'),
-(56, 23, 'Joris', 'Source\r\n\r\nhttps://leblogducodeur.fr/pourquoi-apprendre-php/', 'valide', '2021-02-09 23:40:39'),
-(59, 25, 'Joris', 'Nouveau commentaire', 'valide', '2021-02-10 15:11:27'),
-(61, 26, 'Joris', 'Nouveau commentaire', 'valide', '2021-02-10 17:37:07'),
-(62, 28, 'Source', 'https://leblogducodeur.fr/pourquoi-apprendre-php/', 'avalider', '2021-02-10 19:02:01');
+(62, 28, 'Source', 'https://leblogducodeur.fr/pourquoi-apprendre-php/', 'avalider', '2021-02-10 19:02:01'),
+(63, 28, 'Joris', 'Commentaire', 'valide', '2021-02-12 16:39:46');
 
 -- --------------------------------------------------------
 
@@ -93,7 +90,8 @@ INSERT INTO `users` (`id`, `pseudo`, `email`, `password`) VALUES
 -- Index pour la table `comments`
 --
 ALTER TABLE `comments`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_postid` (`post_id`);
 
 --
 -- Index pour la table `posts`
@@ -115,16 +113,26 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT pour la table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `FK_postid` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE;
